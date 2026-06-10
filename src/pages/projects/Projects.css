@@ -663,3 +663,111 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── 脑图入口卡 ── */
+.ii-mindmap-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #fff;
+  border: 1.5px solid #d1fae5;
+  border-radius: 20px;
+  padding: 24px 28px;
+  margin-top: 28px;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.ii-mindmap-card:hover {
+  box-shadow: 0 8px 32px rgba(5, 150, 105, 0.12);
+  transform: translateY(-2px);
+}
+.ii-mindmap-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ii-mindmap-text {
+  flex: 1;
+}
+.ii-mindmap-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  opacity: 0.7;
+}
+.ii-mindmap-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #064e3b;
+  margin-bottom: 4px;
+}
+.ii-mindmap-desc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+.ii-mindmap-arrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── 脑图 iframe 弹层 ── */
+.ii-map-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.ii-map-frame-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 80vh;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.3);
+}
+.ii-map-close {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+.ii-map-close:hover {
+  background: #f1f5f9;
+}
+.ii-map-iframe {
+  width: 100%;
+  flex: 1;
+  border: none;
+}

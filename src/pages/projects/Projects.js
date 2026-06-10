@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
@@ -417,6 +417,7 @@ function AigcInner({ asset }) {
 }
 
 function MethodInner({ asset }) {
+  const [mapOpen, setMapOpen] = useState(false);
   return (
     <div className="ii-method-body">
       <div className="ii-eyebrow" style={{ color: asset.accentColor }}>
@@ -445,6 +446,91 @@ function MethodInner({ asset }) {
           </div>
         ))}
       </div>
+
+      {/* 脑图入口卡 */}
+      <div className="ii-mindmap-card" onClick={() => setMapOpen(true)}>
+        <div className="ii-mindmap-icon" style={{ background: asset.iconBg }}>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={asset.accentColor}
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            width="24"
+            height="24"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <circle cx="3" cy="6" r="2" />
+            <line x1="5" y1="6" x2="9" y2="11" />
+            <circle cx="21" cy="6" r="2" />
+            <line x1="19" y1="6" x2="15" y2="11" />
+            <circle cx="3" cy="18" r="2" />
+            <line x1="5" y1="18" x2="9" y2="13" />
+            <circle cx="21" cy="18" r="2" />
+            <line x1="19" y1="18" x2="15" y2="13" />
+          </svg>
+        </div>
+        <div className="ii-mindmap-text">
+          <div
+            className="ii-mindmap-label"
+            style={{ color: asset.accentColor }}
+          >
+            知识沉淀
+          </div>
+          <div className="ii-mindmap-title">AI 知识脑图</div>
+          <div className="ii-mindmap-desc">
+            3 周培训核心知识点整理，覆盖 AI 产品、模型能力与工程实践
+          </div>
+        </div>
+        <div className="ii-mindmap-arrow" style={{ color: asset.accentColor }}>
+          展开查看
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            width="14"
+            height="14"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </div>
+      </div>
+
+      {/* 脑图 iframe 弹层 */}
+      {mapOpen && (
+        <div className="ii-map-overlay" onClick={() => setMapOpen(false)}>
+          <div
+            className="ii-map-frame-wrap"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="ii-map-close" onClick={() => setMapOpen(false)}>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                width="18"
+                height="18"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+              关闭
+            </button>
+            <iframe
+              src="https://ai-tech-mindmap.pages.dev/"
+              title="AI 知识脑图"
+              className="ii-map-iframe"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
