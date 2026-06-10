@@ -1,3 +1,194 @@
-.opensource-main {
+/* ── 外层容器 ── */
+.review-main {
   width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #f7f6f2;
+  min-height: 100vh;
+}
+
+/* ── 背景光晕 ── */
+.review-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.review-blob-green {
+  width: 500px;
+  height: 500px;
+  background: #a7f3d0;
+  top: -120px;
+  right: -100px;
+  filter: blur(100px);
+  opacity: 0.55;
+}
+.review-blob-amber {
+  width: 380px;
+  height: 380px;
+  background: #fde68a;
+  bottom: 60px;
+  left: -80px;
+  filter: blur(90px);
+  opacity: 0.5;
+}
+
+/* ── 主内容区 ── */
+.review-page {
+  position: relative;
+  z-index: 1;
+  padding: 48px 60px 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── 页头 ── */
+.review-hero {
+  margin-bottom: 48px;
+}
+.review-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #059669;
+  margin-bottom: 12px;
+}
+.review-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+.review-subtitle {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* ── 两栏布局 ── */
+.review-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ── 列标题栏 ── */
+.review-col-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 14px;
+  padding: 14px 20px;
+  margin-bottom: 16px;
+}
+.review-col-header--green {
+  background: #d1fae5;
+  color: #065f46;
+}
+.review-col-header--amber {
+  background: #fef3c7;
+  color: #92400e;
+}
+.review-col-sub {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+/* ── 卡片列表 ── */
+.review-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── 单张卡片 ── */
+.review-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px 22px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+.review-card--green {
+  border-left: 3px solid #34d399;
+}
+.review-card--amber {
+  border-left: 3px solid #fbbf24;
+}
+
+.review-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.review-card-icon--green {
+  background: #d1fae5;
+  color: #059669;
+}
+.review-card-icon--amber {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.review-card-body {
+  flex: 1;
+}
+.review-card-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.review-card-num--green {
+  color: #34d399;
+}
+.review-card-num--amber {
+  color: #fbbf24;
+}
+
+.review-card-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px;
+}
+.review-card-desc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── 响应式 ── */
+@media (max-width: 768px) {
+  .review-page {
+    padding: 36px 20px 60px;
+  }
+  .review-title {
+    font-size: 30px;
+  }
+  .review-cols {
+    grid-template-columns: 1fr;
+  }
 }
