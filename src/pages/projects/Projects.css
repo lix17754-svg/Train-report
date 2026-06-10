@@ -306,6 +306,322 @@
   z-index: 1;
 }
 
+/* ════════════════════════════════════════
+   内页通用
+════════════════════════════════════════ */
+.ii-bg-orb {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  top: -150px;
+  right: -150px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+.ii-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.ii-title {
+  font-size: 38px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+.ii-desc {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+.ii-hero {
+  margin-bottom: 36px;
+}
+.ii-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.ii-link-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+/* ════ 01 SKILL ════ */
+.ii-skill-body {
+  padding: 52px 48px 80px;
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.ii-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.ii-skill-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  border-radius: 18px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.ii-skill-card:hover {
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+  transform: translateY(-3px);
+}
+.ii-sk-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.ii-sk-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1e3a5f;
+}
+.ii-sk-desc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.6;
+  flex: 1;
+}
+.ii-sk-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.ii-sk-btn:hover {
+  opacity: 0.75;
+}
+
+/* ════ 02 AGENT ════ */
+.ii-agent-body {
+  padding: 52px 48px 80px;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 56px;
+  align-items: start;
+}
+.ii-agent-left {
+  display: flex;
+  flex-direction: column;
+}
+.ii-mock-window {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 24px 64px rgba(245, 158, 11, 0.2),
+    0 0 0 1px rgba(245, 158, 11, 0.1);
+  overflow: hidden;
+}
+.ii-mock-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.ii-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ii-mock-title {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+}
+.ii-mock-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f8fafc;
+}
+.ii-mock-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.ii-mock-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #334155;
+}
+
+/* ════ 03 AIGC ════ */
+.ii-aigc-body {
+  padding: 52px 48px 80px;
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.ii-aigc-showcase {
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 16 / 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(124, 58, 237, 0.3);
+  margin-bottom: 28px;
+}
+.ii-wave {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 80px;
+}
+.ii-wave-bar {
+  width: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.65);
+  animation: iiWave 1.2s ease-in-out infinite;
+  height: 20px;
+}
+@keyframes iiWave {
+  0%,
+  100% {
+    height: 20px;
+    opacity: 0.4;
+  }
+  50% {
+    height: 70px;
+    opacity: 0.9;
+  }
+}
+.ii-aigc-overlay {
+  position: absolute;
+  bottom: 18px;
+  left: 24px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.ii-aigc-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ii-tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ii-tag {
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+/* ════ 04 方法论 ════ */
+.ii-method-body {
+  padding: 52px 48px 80px;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.ii-method-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.ii-method-col {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(5, 150, 105, 0.12);
+  border-radius: 20px;
+  padding: 28px 24px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.ii-method-col:hover {
+  box-shadow: 0 12px 32px rgba(5, 150, 105, 0.15);
+  transform: translateY(-3px);
+}
+.ii-method-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.ii-method-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #064e3b;
+  margin-bottom: 14px;
+}
+.ii-method-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ii-method-list li {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}
+.ii-method-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
 /* ── 响应式 ── */
 @media (max-width: 768px) {
   .assets-page {
@@ -317,10 +633,23 @@
   .asset-inner-header {
     padding: 14px 20px;
   }
-  .asset-inner-body {
-    padding: 40px 20px 60px;
+  .ii-skill-body,
+  .ii-agent-body,
+  .ii-aigc-body,
+  .ii-method-body {
+    padding: 36px 20px 60px;
   }
-  .asset-inner-title {
+  .ii-title {
     font-size: 28px;
+  }
+  .ii-skill-grid {
+    grid-template-columns: 1fr;
+  }
+  .ii-agent-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ii-method-cols {
+    grid-template-columns: 1fr;
   }
 }

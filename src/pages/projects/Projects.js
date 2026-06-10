@@ -9,13 +9,19 @@ const ASSETS = [
     id: 1,
     num: "01",
     tag: "SKILL",
+    type: "skill",
     glowColor: "#bfdbfe",
+    orbColor: "#93c5fd",
+    gradient:
+      "linear-gradient(160deg,#dbeafe 0%,#eff6ff 30%,#f7f8ff 60%,#ffffff 100%)",
+    accentColor: "#3b82f6",
     iconBg: "#eff6ff",
     title: "项目沉淀 Skill",
     desc: "Demo 设计及上线过程中，基于繁琐流程和卡点沉淀的自动化 Skill",
+    innerEyebrow: "01 · Skill · 自动化工具",
     innerTitle: "项目沉淀 Skill",
     innerDesc:
-      "Demo 设计及上线过程中，基于繁琐流程和卡点沉淀的自动化 Skill。包含 4 个可独立复用的 Skill，每个附有使用文档。",
+      "Demo 设计及上线过程中，基于繁琐流程和卡点沉淀的 4 个自动化 Skill，可直接复用到下一个项目。",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -30,19 +36,32 @@ const ASSETS = [
         <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
       </svg>
     ),
+    skills: [
+      { num: "Skill 01", name: "待填充", desc: "一句话描述" },
+      { num: "Skill 02", name: "待填充", desc: "一句话描述" },
+      { num: "Skill 03", name: "待填充", desc: "一句话描述" },
+      { num: "Skill 04", name: "待填充", desc: "一句话描述" },
+    ],
   },
   {
     id: 2,
     num: "02",
     tag: "AGENT",
+    type: "agent",
     glowColor: "#fde68a",
+    orbColor: "#fcd34d",
+    gradient:
+      "linear-gradient(160deg,#fef3c7 0%,#fffbeb 30%,#fffff8 60%,#ffffff 100%)",
+    accentColor: "#d97706",
     iconBg: "#fffbeb",
     title: "AI 周报 Agent",
     desc:
       "自动追踪国内外 AI 新闻与行业动态，同步更新至飞书文档，降低信息搜集与学习成本",
+    innerEyebrow: "02 · Agent · 自动周报",
     innerTitle: "AI 周报 Agent",
     innerDesc:
       "自动追踪国内外 AI 新闻与行业动态，并同步更新至飞书文档，降低信息搜集与学习成本。",
+    feishuLink: "#",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -63,12 +82,21 @@ const ASSETS = [
     id: 3,
     num: "03",
     tag: "AIGC",
+    type: "aigc",
     glowColor: "#ddd6fe",
+    orbColor: "#c4b5fd",
+    gradient:
+      "linear-gradient(160deg,#ede9fe 0%,#f5f3ff 30%,#faf8ff 60%,#ffffff 100%)",
+    accentColor: "#7c3aed",
     iconBg: "#f5f3ff",
     title: "AIGC 创作 Agent",
     desc: "基于音频波纹生成动漫场景视觉，可用于后续暖暖音频 / 视频创作",
+    innerEyebrow: "03 · AIGC · 视觉创作",
     innerTitle: "AIGC 创作 Agent",
-    innerDesc: "基于音频波纹生成动漫场景视觉，如有需求可用于后续暖暖音频创作。",
+    innerDesc:
+      "基于音频波纹生成动漫场景视觉，可用于后续暖暖音频 / 视频创作，也可迁移到其他情绪类产品。",
+    workLink: "#",
+    tags: ["音频波纹", "动漫场景", "可迁移"],
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -89,14 +117,95 @@ const ASSETS = [
     id: 4,
     num: "04",
     tag: "方法论",
+    type: "method",
     glowColor: "#a7f3d0",
+    orbColor: "#6ee7b7",
+    gradient:
+      "linear-gradient(160deg,#d1fae5 0%,#ecfdf5 30%,#f7fff9 60%,#ffffff 100%)",
+    accentColor: "#059669",
     iconBg: "#ecfdf5",
     title: "可复用方法论",
     desc: "沉淀 AI Build、数据驱动与产品统筹方法，形成可迁移的项目推进能力",
     tags: "AI Build · 数据驱动 · 产品统筹",
+    innerEyebrow: "04 · 方法论 · 可迁移能力",
     innerTitle: "可复用方法论",
     innerDesc:
-      "沉淀 AI Build、数据驱动与产品统筹方法，形成可迁移的项目推进能力框架。",
+      "沉淀 AI Build、数据驱动与产品统筹三项能力，形成可直接迁移到下一个项目的推进框架。",
+    methods: [
+      {
+        name: "数据驱动能力",
+        points: [
+          "用数据定义问题而非感觉",
+          "测评指标设计与量化",
+          "Bad case 归因分析方法",
+          "数据反馈驱动迭代决策",
+        ],
+        icon: (
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#059669"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            width="22"
+            height="22"
+          >
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+        ),
+      },
+      {
+        name: "AI Build 能力",
+        points: [
+          "创作可复用 Skill 模板",
+          "爬取 GitHub 优秀作品仿写",
+          "模型评分后的 Bad case 归因",
+          "不同模型的场景适配分析",
+        ],
+        icon: (
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#059669"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            width="22"
+            height="22"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+          </svg>
+        ),
+      },
+      {
+        name: "产品统筹能力",
+        points: [
+          "项目背景与目标拆解",
+          "用户场景与需求分析",
+          "跨角色沟通与协调",
+          "产品迭代节奏把控",
+        ],
+        icon: (
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#059669"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            width="22"
+            height="22"
+          >
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 00-3-3.87" />
+            <path d="M16 3.13a4 4 0 010 7.75" />
+          </svg>
+        ),
+      },
+    ],
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -115,6 +224,268 @@ const ASSETS = [
   },
 ];
 
+/* ── 内页内容渲染 ── */
+function SkillInner({ asset }) {
+  return (
+    <div className="ii-skill-body">
+      <div className="ii-hero">
+        <div className="ii-eyebrow" style={{ color: asset.accentColor }}>
+          {asset.innerEyebrow}
+        </div>
+        <h2 className="ii-title">{asset.innerTitle}</h2>
+        <p className="ii-desc">{asset.innerDesc}</p>
+      </div>
+      <div className="ii-skill-grid">
+        {asset.skills.map((sk) => (
+          <div key={sk.num} className="ii-skill-card">
+            <div className="ii-sk-num" style={{ color: asset.glowColor }}>
+              {sk.num}
+            </div>
+            <h3 className="ii-sk-name">{sk.name}</h3>
+            <p className="ii-sk-desc">{sk.desc}</p>
+            <button
+              className="ii-sk-btn"
+              style={{ color: asset.accentColor, background: asset.iconBg }}
+            >
+              查看文档 →
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function AgentInner({ asset }) {
+  return (
+    <div className="ii-agent-body">
+      <div className="ii-agent-left">
+        <div className="ii-eyebrow" style={{ color: asset.accentColor }}>
+          {asset.innerEyebrow}
+        </div>
+        <h2 className="ii-title">{asset.innerTitle}</h2>
+        <p className="ii-desc">{asset.innerDesc}</p>
+        <a
+          href={asset.feishuLink}
+          className="ii-link-btn"
+          style={{ background: asset.accentColor }}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            width="15"
+            height="15"
+          >
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+          在飞书查看 Agent
+        </a>
+      </div>
+      <div className="ii-agent-right">
+        <div className="ii-mock-window">
+          <div className="ii-mock-bar">
+            <span className="ii-dot" style={{ background: "#f87171" }} />
+            <span className="ii-dot" style={{ background: "#fbbf24" }} />
+            <span className="ii-dot" style={{ background: "#34d399" }} />
+            <span className="ii-mock-title">AI 周报 · 第 3 期</span>
+          </div>
+          <div className="ii-mock-row">
+            <span
+              className="ii-mock-badge"
+              style={{ background: "#fef3c7", color: "#92400e" }}
+            >
+              国内
+            </span>
+            <span className="ii-mock-text">
+              字节跳动发布全新对话模型，多项基准测试超越 GPT-4o
+            </span>
+          </div>
+          <div className="ii-mock-row">
+            <span
+              className="ii-mock-badge"
+              style={{ background: "#fef3c7", color: "#92400e" }}
+            >
+              海外
+            </span>
+            <span className="ii-mock-text">
+              Anthropic Claude 3.5 支持 Computer Use，自动化操作首次落地
+            </span>
+          </div>
+          <div className="ii-mock-row">
+            <span
+              className="ii-mock-badge"
+              style={{ background: "#fef3c7", color: "#92400e" }}
+            >
+              产品
+            </span>
+            <span className="ii-mock-text">
+              Notion AI 新增工作流自动化，支持跨页面数据联动
+            </span>
+          </div>
+          <div className="ii-mock-row" style={{ borderBottom: "none" }}>
+            <span
+              className="ii-mock-badge"
+              style={{ background: "#fef3c7", color: "#92400e" }}
+            >
+              工具
+            </span>
+            <span className="ii-mock-text">
+              Cursor 发布 Agent 模式，支持多文件自动修改与终端执行
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AigcInner({ asset }) {
+  const bars = Array.from({ length: 18 }, (_, i) => i);
+  const delays = [
+    0,
+    0.1,
+    0.05,
+    0.2,
+    0.15,
+    0.3,
+    0.08,
+    0.25,
+    0.12,
+    0.35,
+    0.04,
+    0.18,
+    0.28,
+    0.06,
+    0.22,
+    0.32,
+    0.14,
+    0.24,
+  ];
+  return (
+    <div className="ii-aigc-body">
+      <div className="ii-eyebrow" style={{ color: asset.accentColor }}>
+        {asset.innerEyebrow}
+      </div>
+      <h2 className="ii-title">{asset.innerTitle}</h2>
+      <p className="ii-desc">{asset.innerDesc}</p>
+      <div
+        className="ii-aigc-showcase"
+        style={{
+          background: "linear-gradient(135deg,#4c1d95,#7c3aed,#a78bfa)",
+        }}
+      >
+        <div className="ii-wave">
+          {bars.map((i) => (
+            <div
+              key={i}
+              className="ii-wave-bar"
+              style={{ animationDelay: `${delays[i]}s` }}
+            />
+          ))}
+        </div>
+        <div className="ii-aigc-overlay">音频波纹 → 动漫场景视觉生成</div>
+      </div>
+      <div className="ii-aigc-meta">
+        <a
+          href={asset.workLink}
+          className="ii-link-btn"
+          style={{ background: asset.accentColor }}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            width="15"
+            height="15"
+          >
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+          查看作品
+        </a>
+        <div className="ii-tag-row">
+          {asset.tags.map((t) => (
+            <span
+              key={t}
+              className="ii-tag"
+              style={{
+                color: asset.accentColor,
+                borderColor: "#ddd6fe",
+                background: "#f5f3ff",
+              }}
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MethodInner({ asset }) {
+  return (
+    <div className="ii-method-body">
+      <div className="ii-eyebrow" style={{ color: asset.accentColor }}>
+        {asset.innerEyebrow}
+      </div>
+      <h2 className="ii-title">{asset.innerTitle}</h2>
+      <p className="ii-desc">{asset.innerDesc}</p>
+      <div className="ii-method-cols">
+        {asset.methods.map((m) => (
+          <div key={m.name} className="ii-method-col">
+            <div
+              className="ii-method-icon"
+              style={{ background: asset.iconBg }}
+            >
+              {m.icon}
+            </div>
+            <h3 className="ii-method-name">{m.name}</h3>
+            <ul className="ii-method-list">
+              {m.points.map((p) => (
+                <li key={p} style={{ "--dot": asset.accentColor }}>
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function InnerContent({ asset }) {
+  if (!asset) return null;
+  switch (asset.type) {
+    case "skill":
+      return <SkillInner asset={asset} />;
+    case "agent":
+      return <AgentInner asset={asset} />;
+    case "aigc":
+      return <AigcInner asset={asset} />;
+    case "method":
+      return <MethodInner asset={asset} />;
+    default:
+      return null;
+  }
+}
+
+/* ── 主组件 ── */
 class Projects extends Component {
   constructor(props) {
     super(props);
@@ -140,14 +511,13 @@ class Projects extends Component {
       <div className="projects-main">
         <Header theme={theme} />
 
-        {/* 背景光晕（提升到 projects-main 层，覆盖整个页面含 Header） */}
+        {/* 背景光晕 */}
         <div className="assets-blob assets-blob-blue" />
         <div className="assets-blob assets-blob-orange" />
         <div className="assets-blob assets-blob-pink" />
 
-        {/* ── 主内容区 ── */}
+        {/* 四张卡片 */}
         <div className="assets-page">
-          {/* 四张卡片 */}
           <div className="assets-grid">
             {ASSETS.map((asset) => (
               <div
@@ -171,7 +541,7 @@ class Projects extends Component {
                 <h3 className="asset-card-title">{asset.title}</h3>
                 <p className="asset-card-desc">
                   {asset.desc}
-                  {asset.tags && (
+                  {asset.tags && typeof asset.tags === "string" && (
                     <span className="asset-card-tags">{asset.tags}</span>
                   )}
                 </p>
@@ -194,16 +564,28 @@ class Projects extends Component {
           </div>
         </div>
 
-        {/* ── 全屏遮罩 ── */}
+        {/* 全屏遮罩 */}
         <div
           className={"asset-overlay" + (openCard ? " open" : "")}
           onClick={() => this.closeCard()}
         />
 
-        {/* ── 全屏内页 ── */}
-        <div className={"asset-inner-page" + (openCard ? " open" : "")}>
+        {/* 全屏内页 */}
+        <div
+          className={"asset-inner-page" + (openCard ? " open" : "")}
+          style={{ background: activeAsset ? activeAsset.gradient : "#fff" }}
+        >
           {activeAsset && (
             <>
+              {/* 背景光晕球 */}
+              <div
+                className="ii-bg-orb"
+                style={{
+                  background: `radial-gradient(circle, ${activeAsset.orbColor} 0%, transparent 70%)`,
+                }}
+              />
+
+              {/* 顶部导航 */}
               <div className="asset-inner-header">
                 <button
                   className="asset-inner-back"
@@ -229,22 +611,8 @@ class Projects extends Component {
                 </span>
               </div>
 
-              <div className="asset-inner-body">
-                <div
-                  className="asset-inner-blob asset-inner-blob-1"
-                  style={{ background: activeAsset.glowColor }}
-                />
-                <div
-                  className="asset-inner-blob asset-inner-blob-2"
-                  style={{ background: activeAsset.glowColor }}
-                />
-                <div className="asset-inner-eyebrow">
-                  {activeAsset.num} · {activeAsset.tag}
-                </div>
-                <h2 className="asset-inner-title">{activeAsset.innerTitle}</h2>
-                <p className="asset-inner-desc">{activeAsset.innerDesc}</p>
-                <div className="asset-inner-placeholder">详细内容即将填充</div>
-              </div>
+              {/* 各类型内容 */}
+              <InnerContent asset={activeAsset} />
             </>
           )}
         </div>
