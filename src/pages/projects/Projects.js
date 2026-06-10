@@ -123,7 +123,7 @@ const ASSETS = [
     innerTitle: "AIGC 创作 Agent",
     innerDesc:
       "基于音频波纹生成动漫场景视觉，可用于后续暖暖音频 / 视频创作，也可迁移到其他情绪类产品。",
-    workLink: "#",
+    workLink: "https://music-rose.pages.dev/",
     tags: ["音频波纹", "动漫场景", "可迁移"],
     icon: (
       <svg
@@ -162,11 +162,12 @@ const ASSETS = [
     methods: [
       {
         name: "数据驱动能力",
+        subtitle: "用数据定位真实问题，用反馈验证迭代方向",
         points: [
-          "用数据定义问题而非感觉",
-          "测评指标设计与量化",
-          "Bad case 归因分析方法",
-          "数据反馈驱动迭代决策",
+          "用数据定义问题，而非凭感觉判断需求",
+          "设计测评指标，将体验问题量化",
+          "通过 Bad case 归因定位模型与产品问题",
+          "用用户反馈持续修正产品方向",
         ],
         icon: (
           <svg
@@ -185,11 +186,12 @@ const ASSETS = [
       },
       {
         name: "AI Build 能力",
+        subtitle: "把 AI 工具、开源项目和模型能力转化为可落地 Demo",
         points: [
           "创作可复用 Skill 模板",
-          "爬取 GitHub 优秀作品仿写",
-          "模型评分后的 Bad case 归因",
-          "不同模型的场景适配分析",
+          "爬取 GitHub 优秀作品并拆解复用",
+          "基于模型评分进行 Bad case 归因",
+          "分析不同模型在具体场景下的适配度",
         ],
         icon: (
           <svg
@@ -209,11 +211,12 @@ const ASSETS = [
       },
       {
         name: "产品统筹能力",
+        subtitle: "从背景、目标、需求到协作推进，保证项目持续落地",
         points: [
-          "项目背景与目标拆解",
-          "用户场景与需求分析",
-          "跨角色沟通与协调",
-          "产品迭代节奏把控",
+          "梳理项目背景与核心目标",
+          "拆解用户场景与真实需求",
+          "协调设计、开发与内容迭代节奏",
+          "把控产品版本迭代与交付节奏",
         ],
         icon: (
           <svg
@@ -354,27 +357,6 @@ function AgentInner({ asset }) {
 }
 
 function AigcInner({ asset }) {
-  const bars = Array.from({ length: 18 }, (_, i) => i);
-  const delays = [
-    0,
-    0.1,
-    0.05,
-    0.2,
-    0.15,
-    0.3,
-    0.08,
-    0.25,
-    0.12,
-    0.35,
-    0.04,
-    0.18,
-    0.28,
-    0.06,
-    0.22,
-    0.32,
-    0.14,
-    0.24,
-  ];
   return (
     <div className="ii-aigc-body">
       <div className="ii-eyebrow" style={{ color: asset.accentColor }}>
@@ -382,22 +364,13 @@ function AigcInner({ asset }) {
       </div>
       <h2 className="ii-title">{asset.innerTitle}</h2>
       <p className="ii-desc">{asset.innerDesc}</p>
-      <div
-        className="ii-aigc-showcase"
-        style={{
-          background: "linear-gradient(135deg,#4c1d95,#7c3aed,#a78bfa)",
-        }}
-      >
-        <div className="ii-wave">
-          {bars.map((i) => (
-            <div
-              key={i}
-              className="ii-wave-bar"
-              style={{ animationDelay: `${delays[i]}s` }}
-            />
-          ))}
-        </div>
-        <div className="ii-aigc-overlay">音频波纹 → 动漫场景视觉生成</div>
+      <div className="ii-aigc-showcase">
+        <video
+          className="ii-aigc-video"
+          src="/Music.mp4"
+          controls
+          playsInline
+        />
       </div>
       <div className="ii-aigc-meta">
         <a
@@ -461,6 +434,7 @@ function MethodInner({ asset }) {
               {m.icon}
             </div>
             <h3 className="ii-method-name">{m.name}</h3>
+            <p className="ii-method-subtitle">{m.subtitle}</p>
             <ul className="ii-method-list">
               {m.points.map((p) => (
                 <li key={p} style={{ "--dot": asset.accentColor }}>
