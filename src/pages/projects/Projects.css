@@ -338,12 +338,12 @@
 .ii-desc {
   font-size: 16px;
   color: #475569;
-  line-height: 1.75;
+  line-height: 1.65;
   max-width: 520px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 .ii-hero {
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 .ii-link-btn {
   display: inline-flex;
@@ -366,15 +366,15 @@
 
 /* ════ 01 SKILL ════ */
 .ii-skill-body {
-  padding: 52px 48px 80px;
-  max-width: 860px;
+  padding: 40px 48px 60px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 .ii-skill-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 .ii-skill-card {
@@ -382,7 +382,7 @@
   backdrop-filter: blur(8px);
   border: 1px solid rgba(59, 130, 246, 0.12);
   border-radius: 18px;
-  padding: 28px 24px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -398,14 +398,28 @@
   letter-spacing: 0.1em;
 }
 .ii-sk-name {
-  font-size: 17px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 700;
   color: #1e3a5f;
+  font-family: "SFMono-Regular", "Cascadia Code", "Fira Mono", monospace;
+  letter-spacing: -0.01em;
+}
+.ii-sk-when {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 3px 9px;
+  align-self: flex-start;
+  line-height: 1.4;
 }
 .ii-sk-desc {
   font-size: 13px;
   color: #64748b;
-  line-height: 1.6;
+  line-height: 1.65;
   flex: 1;
 }
 .ii-sk-btn {
@@ -418,6 +432,8 @@
   padding: 6px 14px;
   cursor: pointer;
   transition: opacity 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
 .ii-sk-btn:hover {
   opacity: 0.75;
@@ -425,20 +441,34 @@
 
 /* ════ 02 AGENT ════ */
 .ii-agent-body {
-  padding: 52px 48px 80px;
-  max-width: 960px;
+  padding: 36px 56px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
+  grid-template-columns: 1fr 1.5fr;
   gap: 56px;
-  align-items: start;
+  align-items: center;
+  height: calc(100vh - 56px);
+  box-sizing: border-box;
 }
 .ii-agent-left {
   display: flex;
   flex-direction: column;
 }
+.ii-agent-img {
+  width: 100%;
+  height: calc(100vh - 56px - 72px);
+  border-radius: 20px;
+  box-shadow: 0 24px 64px rgba(245, 158, 11, 0.25),
+    0 0 0 1px rgba(245, 158, 11, 0.12);
+  display: block;
+  object-fit: contain;
+  object-position: top center;
+  background: #fff;
+}
+
 .ii-mock-window {
   background: #fff;
   border-radius: 20px;
@@ -643,7 +673,7 @@
     font-size: 28px;
   }
   .ii-skill-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .ii-agent-body {
     grid-template-columns: 1fr;

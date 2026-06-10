@@ -37,10 +37,38 @@ const ASSETS = [
       </svg>
     ),
     skills: [
-      { num: "Skill 01", name: "待填充", desc: "一句话描述" },
-      { num: "Skill 02", name: "待填充", desc: "一句话描述" },
-      { num: "Skill 03", name: "待填充", desc: "一句话描述" },
-      { num: "Skill 04", name: "待填充", desc: "一句话描述" },
+      {
+        num: "Skill 01",
+        name: "ui-production",
+        when: "做一个页面 / 界面时",
+        desc:
+          "确保生成的 UI 是分层、每个元素独立可编辑的代码，而不是一张不可改的「背景板」，方便丢进 Cursor / Claude Code / Codex 继续开发",
+        file: "/skills/ui-production.md",
+      },
+      {
+        num: "Skill 02",
+        name: "feishu-doc-writer",
+        when: "AI 工具通过飞书 API 自动写入文档时",
+        desc:
+          "包含认证、block 格式陷阱与排错表，确保标题、列表、链接等内容正确写进飞书文档",
+        file: "/skills/feishu-doc-writer.md",
+      },
+      {
+        num: "Skill 03",
+        name: "online-api-cloudflare-deploy",
+        when: "本地 Node API 要上线或遇到 POST 405 时",
+        desc:
+          "核心是必须 esbuild 打包 _worker.js；解决 API 返回 index.html、405 等 Cloudflare Pages 线上问题",
+        file: "/skills/online-api-cloudflare-deploy.md",
+      },
+      {
+        num: "Skill 04",
+        name: "project-iteration",
+        when: "已上线项目要大版本迭代且老版本须保留时",
+        desc:
+          "走「复制文件夹 → 新仓库 → 新 Pages 项目 → 迁移环境变量 → curl 验证」完整流程；依赖 Skill 03 做部署排错",
+        file: "/skills/project-iteration.md",
+      },
     ],
   },
   {
@@ -61,7 +89,7 @@ const ASSETS = [
     innerTitle: "AI 周报 Agent",
     innerDesc:
       "自动追踪国内外 AI 新闻与行业动态，并同步更新至飞书文档，降低信息搜集与学习成本。",
-    feishuLink: "#",
+    feishuLink: "https://guanghe.feishu.cn/docx/MNyCdUNQ1oqKxXxdLe7csuXGnlh",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -238,17 +266,42 @@ function SkillInner({ asset }) {
       <div className="ii-skill-grid">
         {asset.skills.map((sk) => (
           <div key={sk.num} className="ii-skill-card">
-            <div className="ii-sk-num" style={{ color: asset.glowColor }}>
+            <div
+              className="ii-sk-num"
+              style={{ color: asset.accentColor, opacity: 0.4 }}
+            >
               {sk.num}
             </div>
             <h3 className="ii-sk-name">{sk.name}</h3>
+            <div
+              className="ii-sk-when"
+              style={{ color: asset.accentColor, borderColor: asset.glowColor }}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                width="11"
+                height="11"
+              >
+                <polyline points="9 11 12 14 22 4" />
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+              </svg>
+              {sk.when}
+            </div>
             <p className="ii-sk-desc">{sk.desc}</p>
-            <button
+            <a
+              href={sk.file}
               className="ii-sk-btn"
               style={{ color: asset.accentColor, background: asset.iconBg }}
+              target="_blank"
+              rel="noreferrer"
             >
               查看文档 →
-            </button>
+            </a>
           </div>
         ))}
       </div>
@@ -290,58 +343,11 @@ function AgentInner({ asset }) {
         </a>
       </div>
       <div className="ii-agent-right">
-        <div className="ii-mock-window">
-          <div className="ii-mock-bar">
-            <span className="ii-dot" style={{ background: "#f87171" }} />
-            <span className="ii-dot" style={{ background: "#fbbf24" }} />
-            <span className="ii-dot" style={{ background: "#34d399" }} />
-            <span className="ii-mock-title">AI 周报 · 第 3 期</span>
-          </div>
-          <div className="ii-mock-row">
-            <span
-              className="ii-mock-badge"
-              style={{ background: "#fef3c7", color: "#92400e" }}
-            >
-              国内
-            </span>
-            <span className="ii-mock-text">
-              字节跳动发布全新对话模型，多项基准测试超越 GPT-4o
-            </span>
-          </div>
-          <div className="ii-mock-row">
-            <span
-              className="ii-mock-badge"
-              style={{ background: "#fef3c7", color: "#92400e" }}
-            >
-              海外
-            </span>
-            <span className="ii-mock-text">
-              Anthropic Claude 3.5 支持 Computer Use，自动化操作首次落地
-            </span>
-          </div>
-          <div className="ii-mock-row">
-            <span
-              className="ii-mock-badge"
-              style={{ background: "#fef3c7", color: "#92400e" }}
-            >
-              产品
-            </span>
-            <span className="ii-mock-text">
-              Notion AI 新增工作流自动化，支持跨页面数据联动
-            </span>
-          </div>
-          <div className="ii-mock-row" style={{ borderBottom: "none" }}>
-            <span
-              className="ii-mock-badge"
-              style={{ background: "#fef3c7", color: "#92400e" }}
-            >
-              工具
-            </span>
-            <span className="ii-mock-text">
-              Cursor 发布 Agent 模式，支持多文件自动修改与终端执行
-            </span>
-          </div>
-        </div>
+        <img
+          src="/AI-agent.png"
+          alt="AI 周报 Agent 示例"
+          className="ii-agent-img"
+        />
       </div>
     </div>
   );
