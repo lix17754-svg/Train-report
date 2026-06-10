@@ -1,0 +1,47 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@11.13.0
+2 info using node@v24.16.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lixiuhui/Desktop/vibe coding/培训汇报/site2/.npmrc
+5 silly config load:file:/Users/lixiuhui/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install react-is
+8 verbose argv "install" "react-is" "--cache" "/Users/lixiuhui/Desktop/vibe coding/培训汇报/site2/.npmcache" "--legacy-peer-deps" "--loglevel" "silent"
+9 verbose logfile logs-max:10 dir:/Users/lixiuhui/Desktop/vibe coding/培训汇报/site2/.npmcache/_logs/2026-06-10T01_14_52_784Z-
+10 verbose logfile /Users/lixiuhui/Desktop/vibe coding/培训汇报/site2/.npmcache/_logs/2026-06-10T01_14_52_784Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+13 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+14 silly idealTree buildDeps
+15 silly fetch manifest react-is@^19.2.7
+16 silly packumentCache full:https://registry.npmjs.org/react-is cache-miss
+17 http fetch GET 200 https://registry.npmjs.org/react-is 142974ms (cache revalidated)
+18 silly placeDep ROOT react-is@ REPLACE for: masterPortfolio@0.1.0 want: ^19.2.7
+19 verbose type system
+20 verbose stack FetchError: Invalid response body while trying to fetch https://registry.npmjs.org/react-is: stream size mismatch when checking sha512-JG4TR/Eq1sSXnvm/HszXQ3knDevOM74f03fs61om5jhk3LeiJDQKQEp439pkLRtbXT5lSfvWcazSWWJfTfOaHw==.
+20 verbose stack   Wanted: 5415122
+20 verbose stack   Found: 0
+20 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/minipass-fetch/lib/body.js:174:15
+20 verbose stack     at async Response.json (/usr/local/lib/node_modules/npm/node_modules/minipass-fetch/lib/body.js:75:17)
+20 verbose stack     at async RegistryFetcher.packument (/usr/local/lib/node_modules/npm/node_modules/pacote/lib/registry.js:98:25)
+20 verbose stack     at async RegistryFetcher.manifest (/usr/local/lib/node_modules/npm/node_modules/pacote/lib/registry.js:128:23)
+20 verbose stack     at async #fetchManifest (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1217:20)
+20 verbose stack     at async #nodeFromEdge (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1054:19)
+20 verbose stack     at async #buildDepStep (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:917:11)
+20 verbose stack     at async Arborist.buildIdealTree (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:170:7)
+20 verbose stack     at async Promise.all (index 1)
+20 verbose stack     at async Arborist.reify (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:111:5)
+21 error code EBADSIZE
+22 error errno EBADSIZE
+23 error Invalid response body while trying to fetch https://registry.npmjs.org/react-is: stream size mismatch when checking sha512-JG4TR/Eq1sSXnvm/HszXQ3knDevOM74f03fs61om5jhk3LeiJDQKQEp439pkLRtbXT5lSfvWcazSWWJfTfOaHw==.
+23 error   Wanted: 5415122
+23 error   Found: 0
+24 silly unfinished npm timer reify 1781054093235
+25 silly unfinished npm timer reify:loadTrees 1781054093239
+26 verbose cwd /Users/lixiuhui/Desktop/vibe coding/培训汇报/site2
+27 verbose os Darwin 24.5.0
+28 verbose node v24.16.0
+29 verbose npm  v11.13.0
+30 verbose exit 1
+31 verbose code 1
+32 error A complete log of this run can be found in: /Users/lixiuhui/Desktop/vibe coding/培训汇报/site2/.npmcache/_logs/2026-06-10T01_14_52_784Z-debug-0.log

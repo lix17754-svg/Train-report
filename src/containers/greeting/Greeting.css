@@ -1,0 +1,278 @@
+.greet-main {
+  width: 90%;
+  max-width: 1400px;
+  padding: 20px 10px;
+  margin: 0px auto;
+  margin-top: 2rem;
+}
+
+.greeting-main {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.greeting-text-div {
+  flex: 1 1 42%;
+  min-width: 0;
+}
+
+.greeting-card-div {
+  flex: 1 1 58%;
+  min-width: 0;
+}
+
+.button-greeting-div {
+  display: flex;
+  margin-top: 28px;
+}
+
+/* ---------- LEFT column ---------- */
+.greeting-name-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.greeting-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 35%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 20px -8px rgba(0, 28, 85, 0.45);
+  flex-shrink: 0;
+}
+
+.greeting-text {
+  margin-top: 0;
+  font-size: 64px;
+  line-height: 1.1;
+  font-family: "Google Sans Bold";
+}
+
+.greeting-nickname {
+  font-size: 24px;
+  line-height: 1.3;
+  margin-top: 14px;
+  font-family: "Google Sans Bold Italic";
+}
+
+.greeting-divider {
+  width: 56px;
+  height: 4px;
+  border-radius: 4px;
+  margin: 22px 0 20px 0;
+  opacity: 0.9;
+}
+
+.greeting-period {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin: 0 0 12px 0;
+  font-family: "Google Sans Medium";
+}
+
+.greeting-text-p {
+  font-size: 17px;
+  line-height: 1.9;
+  margin: 0;
+  max-width: 30em;
+  letter-spacing: 0.2px;
+  font-family: "Google Sans Regular";
+}
+
+/* ---------- RIGHT card ---------- */
+.overview-card {
+  background: #ffffff;
+  border: 1px solid #eef1f7;
+  border-radius: 20px;
+  padding: 32px 34px;
+  box-shadow: 0 18px 50px -24px rgba(0, 28, 85, 0.28);
+}
+
+.overview-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  font-family: "Google Sans Bold";
+}
+
+/* stat tiles */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.stat-tile {
+  border: 1px solid #eef1f7;
+  border-radius: 14px;
+  padding: 18px 14px;
+  background: #fbfcfe;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -16px rgba(0, 28, 85, 0.4);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #eef2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.stat-num {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  font-family: "Google Sans Bold";
+}
+
+.stat-unit {
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 4px;
+  color: #5b6b8c;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #5b6b8c;
+  margin-top: 8px;
+}
+
+.overview-line {
+  height: 1px;
+  background: #eef1f7;
+  margin: 28px 0;
+}
+
+/* stepper */
+.struct-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.struct-step {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  padding: 0 4px;
+}
+
+.struct-step::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: 50%;
+  width: 100%;
+  border-top: 2px dashed #c9d6f0;
+  z-index: 0;
+}
+
+.struct-step:last-child::after {
+  display: none;
+}
+
+.step-num {
+  position: relative;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px auto;
+  box-shadow: 0 6px 14px -6px rgba(47, 84, 235, 0.7);
+}
+
+.step-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-family: "Google Sans Bold";
+}
+
+.step-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #5b6b8c;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .greeting-main {
+    display: block;
+  }
+  .greeting-text-div {
+    margin-bottom: 40px;
+  }
+  .greeting-text {
+    font-size: 48px;
+  }
+  .greeting-avatar {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .greeting-name-row {
+    justify-content: center;
+  }
+  .greeting-avatar {
+    width: 38px;
+    height: 38px;
+  }
+  .greeting-text {
+    font-size: 34px;
+    text-align: center;
+  }
+  .greeting-nickname {
+    font-size: 20px;
+    text-align: center;
+  }
+  .greeting-divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .greeting-period,
+  .greeting-text-p {
+    text-align: center;
+    max-width: 100%;
+  }
+  .button-greeting-div {
+    justify-content: center;
+  }
+  .overview-card {
+    padding: 24px 18px;
+  }
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .struct-steps {
+    flex-wrap: wrap;
+    row-gap: 22px;
+  }
+  .struct-step {
+    flex: 0 0 33%;
+  }
+  .struct-step::after {
+    display: none;
+  }
+}
