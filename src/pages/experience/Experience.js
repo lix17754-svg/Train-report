@@ -1,194 +1,441 @@
-import React, { Component } from "react";
+import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
-import ExperienceAccordion from "../../containers/experienceAccordion/ExperienceAccordion.js";
 import "./Experience.css";
-import { experience } from "../../portfolio.js";
-import { Fade } from "react-reveal";
-import ExperienceImg from "./ExperienceImg";
 
-// const experience = {
-// 	title: "Experience",
-// 	subtitle: "Work, Internship and Volunteership",
-// 	description:
-// 		"I have worked with many evolving startups as ML and DL Developer, Designer and Software Architect. I have also worked with some well established companies mostly as AI Developer. I love organising events and that is why I am also involved with many opensource communities as a representative.",
-// 	header_image_path: "experience.svg",
-// 	sections: [
-// 		{
-// 			title: "Work",
-// 			experiences: [
-// 				{
-// 					title: "Associate AI Engineer",
-// 					company: "Legato Health Technology",
-// 					company_url: "https://legatohealthtech.com/",
-// 					logo_path: "legato_logo.png",
-// 					duration: "June 2020 - PRESENT",
-// 					location: "Hyderabad, Telangana",
-// 					description: "I am working on automating healthcare products. The projects involve automation for process improvements and for significantly enhancing the profits. I am currently working on Cancer Survival and Reoccurence Prediction. Our goal is to make AI system which scales and removes doctor dependency as much as possible.",
-// 					color: "#0879bf"
-// 				},
-// 				{
-// 					title: "Android and ML Developer",
-// 					company: "Muffito Incorporation",
-// 					company_url: "https://www.linkedin.com/company/muffito-inc/about/",
-// 					logo_path: "muffito_logo.png",
-// 					duration: "May 2018 - Oct 2018",
-// 					location: "Pune, Maharashtra",
-// 					description:
-// 						"I have created complete Android Application for locating Pub, Bar and beverage shops around you. I have also worked on implementation of algorithms for Face Detection, Text extraction from Image. I was involved in a team for creating complete software architecure of mobile and web application as well as admin panel for company.",
-// 					color: "#9b1578"
-// 				},
-// 				{
-// 					title: "Android Developer",
-// 					company: "FreeCopy Pvt. Ltd.",
-// 					company_url: "https://www.linkedin.com/company/freecopy/about/",
-// 					logo_path: "freecopy_logo.png",
-// 					duration: "Nov 2017 - Dec 2017",
-// 					location: "Ahmedabad, Gujarat",
-// 					description:
-// 						"FreeCopy is the Start up from Indian Institute of Management, Ahmedabad. I have changed the integration of the whole app from Google to Firebase. I learnt the efﬁcient ways of Data communications like Retroﬁt, Eventbus etc. I experienced the real time start up. I learnt the Design thinking of UI on perspective of People.",
-// 					color: "#fc1f20"
-// 				}
-// 			]
-// 		},
-// 		{
-// 			title: "Internships",
-// 			experiences: [
-// 				{
-// 					title: "Data Science Research Intern",
-// 					company: "Delhivery Pvt. Ltd.",
-// 					company_url: "https://www.delhivery.com/",
-// 					logo_path: "delhivery_logo.png",
-// 					duration: "May 2019 - Sept 2019",
-// 					location: "Gurgaon, Haryana",
-// 					description:
-// 						"I have worked on project of predicting freight rates based on previous data. There were two objectives: (1) To build a forecasting engine to predict daily freight rates. (2) To embed feature in the model which can explain the seasonal major changes in freight rate based on regions and locations. I have closely worked with deep learning models in combination with statistical methods to create solution for this. At the end of internship, I had created model deployed on AWS EC2 with the use of Kafka stream jobs, ElasticSearch and PostgreSQL.",
-// 					color: "#ee3c26"
-// 				},
-// 				{
-// 					title: "Data Science Intern",
-// 					company: "Intel Indexer LLC",
-// 					company_url:
-// 						"https://opencorporates.com/companies/us_dc/EXTUID_4170286",
-// 					logo_path: "intel_logo.jpg",
-// 					duration: "Nov 2018 - Dec 2018",
-// 					location: "Work From Home",
-// 					description:
-// 						"This is financial Solution Company. I have made Supervised Learning model for the company which can perform time series analysis on Stock price data for 32 companies. I have built LSTM Neural Networks Model and trained the data of 32 companies for last 2 years. This model is also used for forecasting.",
-// 					color: "#0071C5"
-// 				}
-// 			]
-// 		},
-// 		{
-// 			title: "Volunteerships",
-// 			experiences: [
-// 				{
-// 					title: "Google Explore ML Facilitator",
-// 					company: "Google",
-// 					company_url: "https://about.google/",
-// 					logo_path: "google_logo.png",
-// 					duration: "June 2019 - April 2020",
-// 					location: "Hyderabad, Telangana",
-// 					description:
-// 						"Explore Machine Learning (ML) is a Google-sponsored program for university students to get started with Machine Learning. The curriculum offers 3 tracks of ML Content (Beginner, Intermediate, Advanced) and relies on university student facilitators to train other students on campus and to build opensource projects under this program.",
-// 					color: "#4285F4"
-// 				},
-// 				{
-// 					title: "Microsoft Student Partner",
-// 					company: "Microsoft",
-// 					company_url: "https://www.microsoft.com/",
-// 					logo_path: "microsoft_logo.png",
-// 					duration: "Aug 2019 - May 2020",
-// 					location: "Hyderabad, Telangana",
-// 					description:
-// 						"Microsoft Student Partner is a program for university students to lead the awareness and use of Cloud especially Azure tools in the development of their projects and startups. Under this program, I have organised hands on workshops and seminars to teach Cloud Computing concepts to students.",
-// 					color: "#D83B01"
-// 				},
-// 				{
-// 					title: "Mozilla Campus Captain",
-// 					company: "Mozilla",
-// 					company_url: "https://www.mozilla.org/",
-// 					logo_path: "mozilla_logo.png",
-// 					duration: "Oct 2019 - May 2020",
-// 					location: "Kurnool, Andhra Pradesh",
-// 					description:
-// 						"My responsibility for this program was to create opensource environment in college and in the city. We have organised multiple hackathons on the problems collected by ordinary people from Kurnool city. We have build opensource community of our own college. The community is available at dsc_iiitdmk on github.",
-// 					color: "#000000"
-// 				},
-// 				{
-// 					title: "Developer Students Club Member",
-// 					company: "DSC IIITDM Kurnool",
-// 					company_url:
-// 						"https://www.linkedin.com/company/developer-students-club-iiitdm-kurnool",
-// 					logo_path: "dsc_logo.png",
-// 					duration: "Jan 2018 - May 2020",
-// 					location: "Kurnool, Andhra Pradesh",
-// 					description:
-// 						"We have well established developer club in college which is directly associated with Google Developers. We have developed many interdisciplinary projects under the membership of this club. We have organised workshops and activities on Android Application Development, Flutter and React JS.",
-// 					color: "#0C9D58"
-// 				},
-// 				{
-// 					title: "Developer Program Member",
-// 					company: "Github",
-// 					company_url: "https://github.com/",
-// 					logo_path: "github_logo.png",
-// 					duration: "July 2019 - PRESENT",
-// 					location: "Work From Home",
-// 					description:
-// 						"I am actively contributing to many opensource projects. I have contributed to projects of organisations like Tensorflow, Uber, Facebook, Google, Scikit-learn, Kiwix, Sympy, Python, NVLabs, Fossasia, Netrack, Keras etc. These contributions include bug fixes, feature requests and formulating peoper documentation for project.",
-// 					color: "#181717"
-// 				}
-// 			]
-// 		}
-// 	]
-// };
+const accent = "#2f54eb";
 
-class Experience extends Component {
-  render() {
-    const theme = this.props.theme;
-    return (
-      <div className="experience-main">
-        <Header theme={theme} />
-        <div className="basic-experience">
-          <Fade bottom duration={2000} distance="40px">
-            <div className="experience-heading-div">
-              <div className="experience-heading-img-div">
-                {/* <img
-									src={require(`../../assets/images/${experience["header_image_path"]}`)}
-									alt=""
-								/> */}
-                <ExperienceImg theme={theme} />
+function SectionBadge({ num }) {
+  return <span className="po-section-badge">{num}</span>;
+}
+
+function StatCard({ icon, value, label }) {
+  return (
+    <div className="po-stat-card">
+      <div className="po-stat-icon">{icon}</div>
+      <div className="po-stat-value">{value}</div>
+      <div className="po-stat-label">{label}</div>
+    </div>
+  );
+}
+
+const demoVersions = [
+  {
+    label: "Demo V1",
+    sub: "GitHub 原型版本",
+    type: "github",
+    url: "https://github.com/lix17754-svg/nuannuan-V1",
+  },
+  {
+    label: "Demo V2",
+    sub: "Pages 初版上线",
+    type: "online",
+    url: "https://nuannuan-v2.pages.dev/",
+  },
+  {
+    label: "Demo V3",
+    sub: "Pages 功能迭代",
+    type: "online",
+    url: "https://nuannuanv3.pages.dev/",
+  },
+  {
+    label: "Demo V4",
+    sub: "Pages 当前优化版",
+    type: "online",
+    url: "https://nuannuanv4.pages.dev/",
+  },
+];
+
+const modelResults = [
+  { name: "GPT", selected: true },
+  { name: "Gemini", selected: false },
+  { name: "豆包", selected: false },
+  { name: "Deepseek", selected: false },
+  { name: "Minimax", selected: false },
+];
+
+const testScenes = [
+  "极端情绪",
+  "身体伤害",
+  "威胁控制",
+  "社交压力",
+  "青春期敏感问题",
+];
+
+const selectionCriteria = [
+  { icon: "❤️", text: "共情表达" },
+  { icon: "🛡️", text: "安全兜底" },
+  { icon: "👤", text: "未成年人友好" },
+  { icon: "💬", text: "中文自然度" },
+  { icon: "⚠️", text: "风险处理能力" },
+];
+
+function MonitorIcon() {
+  return (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={accent}
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <path d="M8 21h8M12 17v4" />
+    </svg>
+  );
+}
+
+function GithubIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+    </svg>
+  );
+}
+
+function ExternalLinkIcon() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <polyline points="15 3 21 3 21 9" />
+      <line x1="10" y1="14" x2="21" y2="3" />
+    </svg>
+  );
+}
+
+function DatabaseIcon({ size = 28 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={accent}
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <ellipse cx="12" cy="5" rx="8" ry="3" />
+      <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" />
+      <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" />
+    </svg>
+  );
+}
+
+export default function Experience(props) {
+  const theme = props.theme;
+
+  return (
+    <div className="experience-main">
+      <Header theme={theme} />
+      <div className="po-wrap">
+        {/* ── 页面标题 ── */}
+        <div className="po-page-header">
+          <div className="po-page-title-block">
+            <p className="po-overline">Project Outcomes</p>
+            <h1 className="po-title" style={{ color: theme.text }}>
+              项目成果
+            </h1>
+            <p className="po-desc">
+              本页呈现「暖暖星语」项目从问题洞察、模型测评、版本上线到数据库部署的阶段性成果。
+            </p>
+          </div>
+          <div className="po-stats-row">
+            <StatCard
+              icon={
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke={accent}
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                </svg>
+              }
+              value="4 个"
+              label="Demo 版本"
+            />
+            <StatCard
+              icon={
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke={accent}
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="4" y="8" width="16" height="11" rx="3" />
+                  <path d="M12 8V4M9 13h.01M15 13h.01M9 16h6" />
+                </svg>
+              }
+              value="1 次"
+              label="模型测评"
+            />
+            <StatCard icon={<DatabaseIcon />} value="1 个" label="数据库后台" />
+            <StatCard
+              icon={
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke={accent}
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                  <path d="M14 3v6h6M9 13h6M9 17h6" />
+                </svg>
+              }
+              value="1 份"
+              label="项目背景洞察"
+            />
+          </div>
+        </div>
+
+        {/* ── Section 1：项目背景 / 问题洞察 ── */}
+        <div className="po-section">
+          <div className="po-section-header">
+            <SectionBadge num="1" />
+            <h2 className="po-section-title" style={{ color: theme.text }}>
+              项目背景 / 问题洞察
+            </h2>
+          </div>
+          <div className="po-bg-grid">
+            {/* 左侧 */}
+            <div className="po-bg-left">
+              <div className="po-data-source-card">
+                <div className="po-data-source-label">数据来源</div>
+                <div className="po-data-source-tag">洋葱客服 · 2022—2024</div>
+                <div className="po-big-number">≈10%</div>
+                <div className="po-big-number-sub">
+                  学生问题集中在
+                  <br />
+                  「主动倾诉焦虑」类别
+                </div>
               </div>
-              <div className="experience-heading-text-div">
-                <h1
-                  className="experience-heading-text"
-                  style={{ color: theme.text }}
-                >
-                  {experience.title}
-                </h1>
-                <h3
-                  className="experience-heading-sub-text"
-                  style={{ color: theme.text }}
-                >
-                  {experience["subtitle"]}
-                </h3>
-                <p
-                  className="experience-header-detail-text subTitle"
-                  style={{ color: theme.secondaryText }}
-                >
-                  {experience["description"]}
+              <div className="po-finding-card">
+                <div className="po-finding-label">核心发现</div>
+                <p className="po-finding-text">
+                  这些学生有情绪需要倾诉，但<strong>缺少一个安全的出口</strong>
+                  去表达和宣泄。
                 </p>
               </div>
             </div>
-          </Fade>
+            {/* 右侧 */}
+            <div className="po-bg-right">
+              <div className="po-scenes-label">典型场景</div>
+              {[
+                {
+                  letter: "A",
+                  title: "被老师当众批评",
+                  desc: "委屈无处发泄，怕跟家长说引发新冲突",
+                },
+                {
+                  letter: "B",
+                  title: "跟同学闹矛盾",
+                  desc: "不想跟别人说，怕传出去、怕被评判",
+                },
+                {
+                  letter: "C",
+                  title: "作业压力崩溃",
+                  desc: "没到打热线的门槛，但情绪已经很卡",
+                },
+                {
+                  letter: "D",
+                  title: "最终行为",
+                  desc: '把情绪吞回去，或发一条"好烦"的朋友圈自言自语',
+                },
+              ].map((s) => (
+                <div className="po-scene-row" key={s.letter}>
+                  <span className="po-scene-letter">{s.letter}</span>
+                  <div className="po-scene-body">
+                    <div className="po-scene-title">{s.title}</div>
+                    <div className="po-scene-desc">{s.desc}</div>
+                  </div>
+                </div>
+              ))}
+              <div className="po-painpoint">
+                💡 痛点核心：想说，但没地方去说
+              </div>
+            </div>
+          </div>
         </div>
-        <ExperienceAccordion sections={experience["sections"]} theme={theme} />
-        <Footer theme={this.props.theme} onToggle={this.props.onToggle} />
-        <TopButton theme={this.props.theme} />
-      </div>
-    );
-  }
-}
 
-export default Experience;
+        {/* ── Section 2：项目版本上线记录 ── */}
+        <div className="po-section">
+          <div className="po-section-header">
+            <SectionBadge num="2" />
+            <h2 className="po-section-title" style={{ color: theme.text }}>
+              项目版本上线记录
+            </h2>
+          </div>
+          <div className="po-versions-grid">
+            {demoVersions.map((v) => (
+              <div className="po-version-card" key={v.label}>
+                <div className="po-version-icon">
+                  <MonitorIcon />
+                </div>
+                <div className="po-version-label" style={{ color: theme.text }}>
+                  {v.label}
+                </div>
+                <div className="po-version-sub">{v.sub}</div>
+                <a
+                  href={v.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`po-version-btn po-version-btn--${v.type}`}
+                >
+                  {v.type === "github" ? (
+                    <>
+                      <GithubIcon /> GitHub
+                    </>
+                  ) : (
+                    <>
+                      <ExternalLinkIcon /> Online
+                    </>
+                  )}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Section 3：V1 模型测评与选型 ── */}
+        <div className="po-section">
+          <div className="po-section-header">
+            <SectionBadge num="3" />
+            <h2 className="po-section-title" style={{ color: theme.text }}>
+              V1 模型测评与选型
+            </h2>
+          </div>
+          <div className="po-model-grid">
+            {/* 测试模型 */}
+            <div className="po-model-block">
+              <div className="po-model-block-label">测试模型</div>
+              <div className="po-model-chips">
+                {modelResults.map((m) => (
+                  <span
+                    key={m.name}
+                    className={
+                      "po-model-chip" +
+                      (m.selected ? " po-model-chip--selected" : "")
+                    }
+                  >
+                    {m.name}
+                    {m.selected && (
+                      <span className="po-model-check">✓ 已选用</span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            </div>
+            {/* 测评场景 */}
+            <div className="po-model-block">
+              <div className="po-model-block-label">测评场景</div>
+              <div className="po-scene-checks">
+                {testScenes.map((s) => (
+                  <div className="po-scene-check-row" key={s}>
+                    <span className="po-check-dot" />
+                    {s}
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* 选型关注点 */}
+            <div className="po-model-block">
+              <div className="po-model-block-label">选型关注点</div>
+              <div className="po-criteria-list">
+                {selectionCriteria.map((c) => (
+                  <div className="po-criteria-row" key={c.text}>
+                    <span className="po-criteria-icon">{c.icon}</span>
+                    {c.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <p className="po-model-note">
+            ℹ️ 基于高风险与敏感对话场景，对国内外模型进行横向测试，为 V1
+            对话能力选型提供依据。
+          </p>
+        </div>
+
+        {/* ── Section 4：线上数据库部署 ── */}
+        <div className="po-section">
+          <div className="po-section-header">
+            <SectionBadge num="4" />
+            <h2 className="po-section-title" style={{ color: theme.text }}>
+              线上数据库部署
+            </h2>
+          </div>
+          <div className="po-db-card">
+            <div className="po-db-left">
+              <div className="po-db-illus">
+                <DatabaseIcon size={48} />
+              </div>
+            </div>
+            <div className="po-db-right">
+              <p className="po-db-desc">
+                暖暖 App 线上数据库已搭建，
+                <br />
+                支持消息存储、后台查看与后续迭代分析。
+              </p>
+              <a
+                href="https://nuannuanv3.pages.dev/admin/messages"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="po-db-link"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <ellipse cx="12" cy="5" rx="8" ry="3" />
+                  <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" />
+                  <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" />
+                </svg>
+                /admin/messages
+              </a>
+              <div className="po-db-tags">
+                <span className="po-db-tag">消息存储</span>
+                <span className="po-db-tag">后台查看</span>
+                <span className="po-db-tag">后续迭代</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer theme={theme} />
+      <TopButton theme={theme} />
+    </div>
+  );
+}
