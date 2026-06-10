@@ -392,6 +392,60 @@
   box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
   transform: translateY(-3px);
 }
+.ii-skill-card--inuse {
+  border-color: rgba(52, 211, 153, 0.35);
+  box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.2),
+    0 4px 16px rgba(52, 211, 153, 0.1);
+}
+.ii-skill-card--inuse:hover {
+  box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.3),
+    0 12px 32px rgba(52, 211, 153, 0.18);
+}
+
+/* ── badge 槽：固定高度，保证四列名称对齐 ── */
+.ii-sk-badge-slot {
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+/* ── 「已投入使用」徽章 ── */
+.ii-sk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+  background: #d1fae5;
+  color: #065f46;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px 4px 7px;
+  border-radius: 20px;
+  border: 1px solid #6ee7b7;
+  letter-spacing: 0.02em;
+  margin-bottom: 2px;
+}
+.ii-sk-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  animation: skBadgePulse 2s ease-out infinite;
+}
+@keyframes skBadgePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  }
+  60% {
+    box-shadow: 0 0 0 5px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
 .ii-sk-num {
   font-size: 11px;
   font-weight: 700;

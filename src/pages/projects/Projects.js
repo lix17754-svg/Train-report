@@ -44,6 +44,7 @@ const ASSETS = [
         desc:
           "确保生成的 UI 是分层、每个元素独立可编辑的代码，而不是一张不可改的「背景板」，方便丢进 Cursor / Claude Code / Codex 继续开发",
         file: "/skills/ui-production.md",
+        inUse: true,
       },
       {
         num: "Skill 02",
@@ -268,7 +269,32 @@ function SkillInner({ asset }) {
       </div>
       <div className="ii-skill-grid">
         {asset.skills.map((sk) => (
-          <div key={sk.num} className="ii-skill-card">
+          <div
+            key={sk.num}
+            className={
+              "ii-skill-card" + (sk.inUse ? " ii-skill-card--inuse" : "")
+            }
+          >
+            <div className="ii-sk-badge-slot">
+              {sk.inUse && (
+                <div className="ii-sk-badge">
+                  <span className="ii-sk-badge-dot" />
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    width="11"
+                    height="11"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  已沉淀为团队资产
+                </div>
+              )}
+            </div>
             <div
               className="ii-sk-num"
               style={{ color: asset.accentColor, opacity: 0.4 }}
